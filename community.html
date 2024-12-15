@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자취생 레시피 웹사이트 - 커뮤니티</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome 아이콘 -->
+  <style>
+    body {
+      background-color: #FAF9F6; /* 배경색을 #FAF9F6로 변경 */
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; /* 나머지는 맑은 고딕 서체로 */
+    }
+    .site-title {
+      font-family: 'Georgia', serif; /* YoriMate만 Georgia 서체로 */
+      color: #F2994A; /* 주황 텍스트 */
+      font-size: 1.5rem;
+    }
+    .community-title {
+      font-family: 'Georgia', serif; /* Community도 Georgia 서체로 */
+      text-align: center;
+      color: #F2994A; /* 주황색 */
+      font-size: 3rem; /* 커다란 글씨 */
+      margin-top: 50px;
+    }
+    /* 게시판 스타일 */
+    .board {
+      background-color: #FFFFFF; /* 하양 배경 */
+      border: 1px solid #F7DC6F; /* 노랑 카드 테두리 */
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .board h4 {
+      color: #000000; /* 검정 텍스트 */
+      font-size: 1.5rem;
+    }
+    .board p {
+      color: #555555; /* 회색 텍스트 */
+    }
+    .card {
+      margin-top: 20px;
+    }
+    .card-header {
+      background-color: #F7DC6F; /* 노랑 배경 */
+      color: #000000;
+    }
+    .card-body {
+      background-color: #FFFFFF;
+    }
+    /* 홈 아이콘 스타일 */
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #F2994A;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .home-icon:hover {
+      color: #F7DC6F; /* 호버 시 색상 변경 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 YoriMate 로고 및 제목 -->
+  <div class="container">
+    <div class="site-title">YoriMate</div> <!-- 주황색 YoriMate 로고 -->
+    <div class="community-title">Community</div> <!-- 가운데 정렬된 Community 제목 -->
+  </div>
+
+  <!-- 홈 아이콘 (Font Awesome) -->
+  <a href="index.html">
+    <button class="home-icon">
+      <i class="fas fa-home"></i> <!-- 홈 아이콘 추가 -->
+    </button>
+  </a>
+
+  <!-- 게시판 영역 -->
+  <div class="container board">
+    <h4>게시판</h4>
+    <div class="row">
+      <!-- 게시글 카드 반복 -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            게시글 제목 1
+          </div>
+          <div class="card-body">
+            <p>게시글 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            게시글 제목 2
+          </div>
+          <div class="card-body">
+            <p>게시글 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            게시글 제목 3
+          </div>
+          <div class="card-body">
+            <p>게시글 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

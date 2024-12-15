@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>특정 재료별 레시피</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome 아이콘 -->
+  <style>
+    body {
+      background-color: #FAF9F6; /* 배경색을 #FAF9F6로 변경 */
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; /* 나머지는 맑은 고딕 서체로 */
+    }
+    .site-title {
+      font-family: 'Georgia', serif; /* YoriMate만 Georgia 서체로 */
+      color: #F2994A; /* 주황 텍스트 */
+      font-size: 1.5rem;
+    }
+    .community-title {
+      text-align: center;
+      color: #F2994A; /* 주황색 */
+      font-size: 3rem; /* 커다란 글씨 */
+      margin-top: 50px;
+    }
+    .card {
+      background-color: #FFFFFF;
+      border: 1px solid #F7DC6F; /* 노랑 카드 테두리 */
+      margin-top: 30px;
+    }
+    .card-header {
+      background-color: #F7DC6F; /* 노랑 배경 */
+      color: #000000;
+    }
+    .card-body {
+      background-color: #FFFFFF;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #F2994A;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .home-icon:hover {
+      color: #F7DC6F; /* 호버 시 색상 변경 */
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 30px;
+      border-radius: 5px;
+      border: 1px solid #F7DC6F;
+    }
+    .search-container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 YoriMate 로고 및 제목 -->
+  <div class="container">
+    <div class="site-title">YoriMate</div> <!-- 주황색 YoriMate 로고 -->
+    <div class="community-title">특정 재료별 레시피</div> <!-- 가운데 정렬된 제목 -->
+  </div>
+
+  <!-- 홈 아이콘 (Font Awesome) -->
+  <a href="index.html">
+    <button class="home-icon">
+      <i class="fas fa-home"></i> <!-- 홈 아이콘 추가 -->
+    </button>
+  </a>
+
+  <!-- 검색창 -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="재료를 입력하세요..." oninput="searchRecipes()">
+  </div>
+
+  <!-- 레시피 그리드 영역 -->
+  <div class="container my-5">
+    <div class="row" id="recipeGrid">
+      <!-- 레시피 카드 반복 -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="recipe-image1.jpg" class="card-img-top" alt="레시피 이미지 1">
+          <div class="card-header">
+            레시피 제목 1
+          </div>
+          <div class="card-body">
+            <p>레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="recipe-image2.jpg" class="card-img-top" alt="레시피 이미지 2">
+          <div class="card-header">
+            레시피 제목 2
+          </div>
+          <div class="card-body">
+            <p>레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="recipe-image3.jpg" class="card-img-top" alt="레시피 이미지 3">
+          <div class="card-header">
+            레시피 제목 3
+          </div>
+          <div class="card-body">
+            <p>레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function searchRecipes() {
+      const searchInput = document.getElementById("searchInput").value.toLowerCase();
+      const recipeGrid = document.getElementById("recipeGrid");
+      const recipes = recipeGrid.getElementsByClassName("card");
+
+      for (let i = 0; i < recipes.length; i++) {
+        const card = recipes[i];
+        const cardTitle = card.getElementsByClassName("card-header")[0].textContent.toLowerCase();
+
+        if (cardTitle.indexOf(searchInput) > -1) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

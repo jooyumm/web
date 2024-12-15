@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자취생 레시피 웹사이트</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome 아이콘 -->
+  <style>
+    /* 전체 배경색 설정 */
+    body {
+      background-color: #FAF9F6;
+    }
+
+    /* 메인 배너 스타일 */
+    .jumbotron {
+      background-color: #F2994A; /* 주황 배경 */
+      color: #FAF9F6; /* 하얀색 텍스트 */
+    }
+
+    /* 공용 버튼 스타일 */
+    .btn-light {
+      background-color: #F7DC6F; /* 노란 배경 */
+      color: #000000; /* 검정 텍스트 */
+    }
+
+    /* 카드 컴포넌트 스타일 */
+    .card {
+      border: 1px solid #F7DC6F; /* 노란색 테두리 */
+    }
+    .card-title {
+      color: #F2994A; /* 주황 텍스트 */
+    }
+    .card-body {
+      background-color: #FAF9F6; /* 카드 내부 배경색 */
+    }
+
+    /* 컨테이너 내부 제목 스타일 */
+    .container h2 {
+      color: #F2994A; /* 주황 텍스트 */
+    }
+
+    /* 사용자 아이콘 스타일 (상단 우측) */
+    .user-icons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 20px; /* 아이콘 간격 */
+    }
+    .user-icons i {
+      font-size: 1.5rem; /* 아이콘 크기 */
+      color: #000000; /* 기본 검정색 */
+    }
+    .user-icons i:hover {
+      color: #F7DC6F; /* 호버 시 노란색으로 변경 */
+    }
+
+    /* 네비게이션 바 스타일 */
+    .nav-bar {
+      background-color: #F2994A; /* 주황색 배경 */
+      padding: 20px 30px; /* 상하/좌우 여백 */
+      border-radius: 10px; /* 모서리 둥글게 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 살짝 그림자 효과 */
+      margin-bottom: 20px; /* 아래 여백 */
+    }
+
+    /* 네비게이션 탭 스타일 */
+    .nav-tabs {
+      display: flex;
+      justify-content: space-evenly; /* 고른 간격 배치 */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-link {
+      color: #FFFFFF; /* 텍스트 흰색 */
+      font-size: 1.1rem; /* 글씨 크기 */
+      padding: 12px 25px; /* 내부 여백 */
+      border-radius: 5px; /* 모서리 둥글게 */
+      transition: all 0.3s ease; /* 호버 효과 부드럽게 */
+      font-weight: bold; /* 굵은 텍스트 */
+      text-decoration: none; /* 밑줄 제거 */
+    }
+    .nav-link:hover {
+      background-color: #F7DC6F; /* 호버 시 노란 배경 */
+      color: #000000; /* 텍스트 검정색 */
+    }
+    .nav-link.active {
+      color: #F2994A; /* 활성화 상태 주황색 텍스트 */
+      background-color: transparent; /* 배경 제거 */
+    }
+
+    /* 웹사이트 제목과 슬로건 스타일 */
+    .site-title {
+      font-family: 'Georgia', serif; /* 제목 글꼴 */
+      font-size: 3rem; /* 제목 크기 */
+      color: #F2994A; /* 주황 텍스트 */
+      display: inline-block;
+    }
+    .slogan {
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; /* 슬로건 글꼴 */
+      font-size: 1rem; /* 슬로건 크기 */
+      color: #000000; /* 검정 텍스트 */
+      margin-left: 10px; /* 제목과 간격 */
+      vertical-align: top; /* 제목과 높이 맞춤 */
+    }
+
+    /* 헤더와 네비게이션 바 사이의 간격 유지 */
+    header {
+      margin-bottom: 30px;
+    }
+
+    /* 네비게이션 바 하단 구분선 */
+    .nav-line {
+      border-bottom: 2px solid #000000; /* 검정 구분선 */
+      margin-bottom: 20px;
+    }
+
+    /* 메인 이미지 스타일 */
+    .main-image {
+      width: 100%; /* 이미지 너비 전체 */
+      height: auto; /* 높이 비율 유지 */
+      margin-bottom: 30px; /* 이미지 아래 여백 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 로고 및 슬로건 -->
+  <header class="d-flex align-items-center justify-content-between p-3">
+    <div>
+      <span class="site-title">YoriMate</span>
+    </div>
+    <div>
+      <span class="slogan">쉽고 알뜰하게, 혼자서도 완벽한 한 끼!</span>
+    </div>
+  </header>
+
+  <!-- 사용자 액션 아이콘 -->
+  <div class="user-icons">
+    <a href="community.html" class="me-3">
+      <i class="fas fa-comment-dots"></i>
+    </a>
+    <a href="bookmark.html">
+      <i class="fas fa-star"></i>
+    </a>
+    <a href="mypage.html">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
+
+  <!-- 네비게이션 바 -->
+  <div class="nav-bar">
+    <ul class="nav-tabs">
+      <li class="nav-item">
+        <a href="budget-recipes.html" class="nav-link" id="budgetLink">예산별 레시피</a>
+      </li>
+      <li class="nav-item">
+        <a href="ingredient-recipes.html" class="nav-link" id="ingredientLink">특정 재료별 레시피</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 홈 화면 사진 -->
+  <div>
+    <img src="main.jpg" class="main-image" alt="Main Image">
+  </div>
+
+  <script>
+    // 네비게이션 링크 활성화 관리
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(nav => nav.classList.remove('active')); // 모든 링크에서 active 클래스 제거
+        this.classList.add('active'); // 클릭된 링크에만 active 클래스 추가
+      });
+    });
+  </script>
+
+</body>
+</html>

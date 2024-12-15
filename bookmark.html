@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Like - YoriMate</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome 아이콘 -->
+  <style>
+    body {
+      background-color: #FAF9F6;
+      font-family: 'Malgun Gothic', 'Georgia', serif;
+    }
+    .site-title {
+      font-family: 'Georgia', serif;
+      color: #F2994A;
+      font-size: 1.5rem;
+    }
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #F2994A;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .home-icon:hover {
+      color: #F7DC6F;
+    }
+    h2 {
+      font-family: 'Georgia', serif;
+      color: #F2994A;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      border: 1px solid #F7DC6F;
+      border-radius: 10px;
+    }
+    .card-title {
+      color: #F2994A;
+    }
+    .btn-light {
+      background-color: #F7DC6F;
+      color: #000000;
+    }
+    .btn-light:hover {
+      background-color: #F2994A;
+      color: #FFFFFF;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup:target {
+      display: flex;
+    }
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #F2994A;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 28px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .popup-close:hover {
+      background-color: #F7DC6F;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 YoriMate 로고 -->
+  <div class="container">
+    <div class="site-title">YoriMate</div>
+  </div>
+
+  <!-- 홈으로 돌아가기 버튼 -->
+  <a href="index.html">
+    <button class="home-icon">
+      <i class="fas fa-home"></i> <!-- Font Awesome 홈 아이콘 -->
+    </button>
+  </a>
+
+  <!-- 페이지 제목 -->
+  <h2>My Like</h2>
+
+  <!-- 레시피 카드 그리드 -->
+  <div class="container">
+    <div class="recipe-grid">
+      <!-- 레시피 카드 1 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Recipe 1">
+        <div class="card-body">
+          <h5 class="card-title">레시피 1</h5>
+          <p class="card-text">간단한 설명: 이 레시피는 맛있고 쉽게 만들 수 있습니다!</p>
+          <a href="#popup1" class="btn btn-light">상세보기</a>
+        </div>
+      </div>
+
+      <!-- 레시피 카드 2 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Recipe 2">
+        <div class="card-body">
+          <h5 class="card-title">레시피 2</h5>
+          <p class="card-text">이 요리는 혼자 사는 자취생에게 딱 맞는 간단한 레시피입니다.</p>
+          <a href="#popup2" class="btn btn-light">상세보기</a>
+        </div>
+      </div>
+
+      <!-- 레시피 카드 3 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Recipe 3">
+        <div class="card-body">
+          <h5 class="card-title">레시피 3</h5>
+          <p class="card-text">이 요리는 예산이 적어도 맛있게 만들 수 있는 레시피입니다.</p>
+          <a href="#popup3" class="btn btn-light">상세보기</a>
+        </div>
+      </div>
+
+      <!-- 레시피 카드 4 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Recipe 4">
+        <div class="card-body">
+          <h5 class="card-title">레시피 4</h5>
+          <p class="card-text">쉽고 건강한 요리 레시피입니다.</p>
+          <a href="#popup4" class="btn btn-light">상세보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업 1 -->
+  <div id="popup1" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">×</a>
+      <img src="https://via.placeholder.com/300" alt="Recipe 1">
+      <div class="popup-text">
+        <h3>레시피 1</h3>
+        <p>간단한 설명: 이 레시피는 맛있고 쉽게 만들 수 있습니다!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업 2 -->
+  <div id="popup2" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">×</a>
+      <img src="https://via.placeholder.com/300" alt="Recipe 2">
+      <div class="popup-text">
+        <h3>레시피 2</h3>
+        <p>이 요리는 혼자 사는 자취생에게 딱 맞는 간단한 레시피입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업 3 -->
+  <div id="popup3" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">×</a>
+      <img src="https://via.placeholder.com/300" alt="Recipe 3">
+      <div class="popup-text">
+        <h3>레시피 3</h3>
+        <p>이 요리는 예산이 적어도 맛있게 만들 수 있는 레시피입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업 4 -->
+  <div id="popup4" class="popup">
+    <div class="popup-content">
+      <a href="#" class="popup-close">×</a>
+      <img src="https://via.placeholder.com/300" alt="Recipe 4">
+      <div class="popup-text">
+        <h3>레시피 4</h3>
+        <p>쉽고 건강한 요리 레시피입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

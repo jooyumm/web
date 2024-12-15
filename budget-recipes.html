@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예산별 레시피</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome 아이콘 -->
+  <style>
+    body {
+      background-color: #FAF9F6; /* 배경색을 #FAF9F6로 변경 */
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; /* 나머지는 맑은 고딕 서체로 */
+    }
+    .site-title {
+      font-family: 'Georgia', serif; /* YoriMate만 Georgia 서체로 */
+      color: #F2994A; /* 주황 텍스트 */
+      font-size: 1.5rem;
+    }
+    .community-title {
+      text-align: center;
+      color: #F2994A; /* 주황색 */
+      font-size: 3rem; /* 커다란 글씨 */
+      margin-top: 50px;
+    }
+    .category-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .category-btn {
+      background-color: #F7DC6F;
+      color: #000000;
+      margin: 5px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+    }
+    .category-btn:hover {
+      background-color: #F2994A;
+    }
+    .card {
+      background-color: #FFFFFF;
+      border: 1px solid #F7DC6F; /* 노랑 카드 테두리 */
+      margin-top: 30px;
+    }
+    .card-header {
+      background-color: #F7DC6F; /* 노랑 배경 */
+      color: #000000;
+    }
+    .card-body {
+      background-color: #FFFFFF;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .home-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #F2994A;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .home-icon:hover {
+      color: #F7DC6F; /* 호버 시 색상 변경 */
+    }
+    .container {
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; /* 한글 폰트 설정 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 YoriMate 로고 및 제목 -->
+  <div class="container">
+    <div class="site-title">YoriMate</div> <!-- 주황색 YoriMate 로고 -->
+    <div class="community-title">예산별 레시피</div> <!-- 가운데 정렬된 제목 -->
+  </div>
+
+  <!-- 홈 아이콘 (Font Awesome) -->
+  <a href="index.html">
+    <button class="home-icon">
+      <i class="fas fa-home"></i> <!-- 홈 아이콘 추가 -->
+    </button>
+  </a>
+
+  <!-- 카테고리 버튼 -->
+  <div class="category-buttons">
+    <button class="category-btn" data-category="3000-5000">3000~5000원</button>
+    <button class="category-btn" data-category="5000-10000">5000~10000원</button>
+    <button class="category-btn" data-category="10000-20000">10000~20000원</button>
+    <button class="category-btn" data-category="20000-30000">20000~30000원</button>
+    <button class="category-btn" data-category="30000+">30000원 이상</button>
+  </div>
+
+  <!-- 레시피 그리드 영역 -->
+  <div class="container my-5">
+    <div class="row" id="recipeGrid">
+      <!-- 레시피 카드 반복 -->
+      <div class="col-md-4 recipe-card" data-price="3000-5000">
+        <div class="card">
+          <img src="budget-recipe-image1.jpg" class="card-img-top" alt="예산별 레시피 이미지 1">
+          <div class="card-header">
+            예산별 레시피 제목 1
+          </div>
+          <div class="card-body">
+            <p>예산별 레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 recipe-card" data-price="5000-10000">
+        <div class="card">
+          <img src="budget-recipe-image2.jpg" class="card-img-top" alt="예산별 레시피 이미지 2">
+          <div class="card-header">
+            예산별 레시피 제목 2
+          </div>
+          <div class="card-body">
+            <p>예산별 레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 recipe-card" data-price="10000-20000">
+        <div class="card">
+          <img src="budget-recipe-image3.jpg" class="card-img-top" alt="예산별 레시피 이미지 3">
+          <div class="card-header">
+            예산별 레시피 제목 3
+          </div>
+          <div class="card-body">
+            <p>예산별 레시피 내용 예시...</p>
+          </div>
+        </div>
+      </div>
+      <!-- 추가 레시피 카드... -->
+    </div>
+  </div>
+
+  <script>
+    // 카테고리 버튼 클릭 시 필터 적용
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const recipeCards = document.querySelectorAll('.recipe-card');
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-category');
+
+        recipeCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-price');
+          if (selectedCategory === cardCategory || selectedCategory === 'all') {
+            card.style.display = 'block'; // 카테고리에 맞는 카드 표시
+          } else {
+            card.style.display = 'none'; // 해당되지 않으면 카드 숨기기
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
